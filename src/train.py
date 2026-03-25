@@ -36,8 +36,12 @@ def train_model(feat_df,
     loader   = DataLoader(train_ds, batch_size=batch_size, shuffle=False)
 
     # --- Model, loss, optimiser (Section IV-B/C) ---
+    from sklearn.utils.class_weight import compute_class_weight
+    weights = compute_class_weight('balanced', classes=np.array([0,1,2]), y=y_train)
+    class_weights = torch.tensor(weights, dtype=torch.float32)
+
     model     = SignalClassifier(input_dim=X_train.shape[1])
-    criterion = nn.CrossEntropyLoss()
+    criterion = nn.CrossEntropyLoss(weight=class_weights)
     optimiser = torch.optim.Adam(model.parameters(), lr=lr)
 
     # --- Training loop ---
