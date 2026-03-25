@@ -7,9 +7,9 @@ import numpy as np
 
 if __name__ == "__main__":
     # --- Config ---
-    TICKER    = "AAPL"
-    START     = "2018-01-01"
-    END       = "2024-01-01"
+    TICKER    = "SPY"
+    START = "2015-01-01"
+    END   = "2023-01-01"
     HORIZON   = 5       # forward-return horizon h (days)
     THRESHOLD = 0.005    # τ for Buy/Sell labeling
 
