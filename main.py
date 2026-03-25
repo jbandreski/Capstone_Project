@@ -11,7 +11,7 @@ if __name__ == "__main__":
     START     = "2018-01-01"
     END       = "2024-01-01"
     HORIZON   = 5       # forward-return horizon h (days)
-    THRESHOLD = 0.01    # τ for Buy/Sell labeling
+    THRESHOLD = 0.005    # τ for Buy/Sell labeling
 
     # --- Pipeline ---
     print("Loading data...")
@@ -21,7 +21,7 @@ if __name__ == "__main__":
     feat_df = engineer_features(raw, horizon=HORIZON, threshold=THRESHOLD)
 
     print("Training model...")
-    model, scaler, test_df, X_test = train_model(feat_df, epochs=50)
+    model, scaler, test_df, X_test = train_model(feat_df, epochs=100)
 
     print("\n--- Classification Metrics ---")
     y_true  = test_df["Label"].values.astype(int)
