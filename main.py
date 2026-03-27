@@ -21,7 +21,7 @@ if __name__ == "__main__":
     feat_df = engineer_features(raw, horizon=HORIZON, threshold=THRESHOLD)
 
     print("Training model...")
-    model, scaler, test_df, X_test = train_model(feat_df, epochs=100)
+    model, scaler, test_df, X_test = train_model(feat_df, epochs=150)
 
     print("\n--- Classification Metrics ---")
     y_true  = test_df["Label"].values.astype(int)
