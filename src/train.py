@@ -51,8 +51,8 @@ def train_model(feat_df,
     criterion = nn.CrossEntropyLoss(weight=class_weights)
     optimiser = torch.optim.Adam(model.parameters(), lr=lr)
 
-   best_loss = float('inf')
-   patience_counter = 0
+    best_loss = float('inf')
+    patience_counter = 0
 
     model.train()
     #Training Loop
